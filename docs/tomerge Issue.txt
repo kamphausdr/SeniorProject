@@ -1,0 +1,2 @@
+- merge this with the Problem Log:
+resolved the flipping issue by changing the true false of the spider. It still is not walking animation.
