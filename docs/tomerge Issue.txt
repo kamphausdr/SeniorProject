@@ -1,2 +1,3 @@
 - merge this with the Problem Log:
-resolved the flipping issue by changing the true false of the spider. It still is not walking animation.
+resolved the flipping issue by changing the true false of the spider. Setting in animation: loop time. fixed spider not walking.
+-Character would flip if you hit the platform at an angle -> Solution Set Rigid Body Rotation to freeze: found on https://answers.unity.com/questions/38542/prevent-rigidbody-from-rotating.html

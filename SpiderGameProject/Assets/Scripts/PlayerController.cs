@@ -8,11 +8,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] // allows field to be adjusted in unity editor
     private float MovementFactor = 0.1f;
     [SerializeField]
-    private float JumpHeight = 1f; // For later implementation of the Jumping
+    // Defines Player Jump Height ratio based off the jump height.
+    private float JumpFactor = 1f;
 
+    private const float jumpHeight = 10f; // Gives a nonchangable jump height.
     // allow access to gaming components
     private Rigidbody2D myRigidbody;
     private Animator myAnimator;
+   
+
+    private bool Jumping = false; // Tracks if player is currently jumping to prevent double jump.
 
     // keeps track of direction player is facing, to allow flipping of sprite as needed
     private bool facingRight;
@@ -32,9 +37,19 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal"); // Provides the input for the player, designed to work with any device
-
+        if(Jumping) // check to see if player is jumping
+        {
+            if(myRigidbody.velocity.y == 0)
+            {
+                Jumping = false;
+                myAnimator.SetBool("Jumping", false);
+            }
+        }
         MovePlayer(horizontal); // Move the player with our function, at the players input velocity.
-
+        if (Input.GetKeyUp(KeyCode.Space) && !Jumping )
+        {
+            Jump(JumpFactor * jumpHeight); // causes the player to jump at his set jump factor times the jump ratio set by the editor
+        }
         // Handle flipping ( if it is necessary it will occur)
         FlipPlayer(horizontal);
 
@@ -55,12 +70,20 @@ public class PlayerController : MonoBehaviour
 
             // change the x axis to the oposite direction
             flipScale.x *= -1;
+            facingRight =! facingRight;
             // perform the actual transformation
             transform.localScale = flipScale;
         }
     }
+    // Handles the player jumping, specifies the height so that outside mechanism can potentially jump at other heights
     private void Jump(float height)
     {
-        // todo: add the code for jumping here.
+        // Set a flag to indicate player is jumping, so that he cannot jump an infinite amount of times
+        Jumping = true;
+        // Set a flag for the animator used to transition the animation to jumping
+        myAnimator.SetBool("Jumping", true);
+        // applies the vertical velocity in order to make the player jump. Maintains his current horizontal velocity
+        myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, height);
+
     }
 }
