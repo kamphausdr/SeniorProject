@@ -15,14 +15,15 @@ public class PlayerController : MonoBehaviour
     // allow access to gaming components
     private Rigidbody2D myRigidbody;
     private Animator myAnimator;
-   
+    private Collider2D myCollider;
 
     private bool Jumping = false; // Tracks if player is currently jumping to prevent double jump.
 
     // keeps track of direction player is facing, to allow flipping of sprite as needed
     private bool facingRight;
+    private bool inColision = false;
 
-
+   
     // Start is called before the first frame update. Here we perform initialization
     void Start()
     {
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
         // gets the two unity components from the player object in order to utilize it
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        myCollider = GetComponentInChildren<Collider2D>();
     }
 
     // Update is called once per frame
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
             {
                 Jumping = false;
                 myAnimator.SetBool("Jumping", false);
+               // myCollider.sharedMaterial.friction = 0.4f;
             }
         }
         MovePlayer(horizontal); // Move the player with our function, at the players input velocity.
@@ -57,9 +60,22 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer(float horizontal)
     {
         // move the player in the direction by the input at the speed of the player also maintaining his current vertical velocity.
-        myRigidbody.velocity = new Vector2(horizontal * MovementFactor, myRigidbody.velocity.y);
+
+        if (!(inColision && Jumping))
+        {
+         
+                 
+                // myCollider.sharedMaterial.friction = 0;
+                myRigidbody.velocity = new Vector2(horizontal * MovementFactor, myRigidbody.velocity.y);
+            myAnimator.SetFloat("Speed", Mathf.Abs(horizontal));
+        }
+        else
+        {
+            Debug.Log("In collision and jumping stop movement");
+        }
+      
         // Set the animators Speed parameter we set to check wether or not the player is moving fast enough to change animation states. We want magnitude not direction, thus Abs.
-        myAnimator.SetFloat("Speed", Mathf.Abs(horizontal));
+   
     }
     // flips the player if they are being moved in the opposite direction, if currently facing the correct input direction do nothing
     private void FlipPlayer(float horizontal)
@@ -80,10 +96,22 @@ public class PlayerController : MonoBehaviour
     {
         // Set a flag to indicate player is jumping, so that he cannot jump an infinite amount of times
         Jumping = true;
+        float vertVel = myRigidbody.velocity.x;
         // Set a flag for the animator used to transition the animation to jumping
         myAnimator.SetBool("Jumping", true);
         // applies the vertical velocity in order to make the player jump. Maintains his current horizontal velocity
-        myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, height);
-
+        if (inColision)
+            vertVel = 0;
+        myRigidbody.velocity = new Vector2(vertVel, height);
+        
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        inColision = true;
+   
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        inColision = false;
     }
 }
