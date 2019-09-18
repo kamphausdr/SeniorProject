@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
+   
     // Defines how fast the player moves, can be adjusted in editor
     [SerializeField] // allows field to be adjusted in unity editor
     private float MovementFactor = 0.1f;
@@ -23,7 +25,8 @@ public class PlayerController : MonoBehaviour
     private bool facingRight;
     private bool inColision = false;
 
-   
+    private bool canmove = true; // when player is answering a question, they wont be able to move.
+
     // Start is called before the first frame update. Here we perform initialization
     void Start()
     {
@@ -38,24 +41,30 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal"); // Provides the input for the player, designed to work with any device
-        if(Jumping) // check to see if player is jumping
+        if (canmove)
         {
-            if(myRigidbody.velocity.y == 0)
+            float horizontal = Input.GetAxis("Horizontal"); // Provides the input for the player, designed to work with any device
+            if (Jumping) // check to see if player is jumping
             {
-                Jumping = false;
-                myAnimator.SetBool("Jumping", false);
-               // myCollider.sharedMaterial.friction = 0.4f;
+                if (myRigidbody.velocity.y == 0)
+                {
+                    Jumping = false;
+                    myAnimator.SetBool("Jumping", false);
+                    // myCollider.sharedMaterial.friction = 0.4f;
+                }
+            }
+         
+            {
+                MovePlayer(horizontal); // Move the player with our function, at the players input velocity.
+                if (Input.GetKeyUp(KeyCode.Space) && !Jumping)
+                {
+                    Jump(JumpFactor * jumpHeight); // causes the player to jump at his set jump factor times the jump ratio set by the editor
+                }
+
+                // Handle flipping ( if it is necessary it will occur)
+                FlipPlayer(horizontal);
             }
         }
-        MovePlayer(horizontal); // Move the player with our function, at the players input velocity.
-        if (Input.GetKeyUp(KeyCode.Space) && !Jumping )
-        {
-            Jump(JumpFactor * jumpHeight); // causes the player to jump at his set jump factor times the jump ratio set by the editor
-        }
-        // Handle flipping ( if it is necessary it will occur)
-        FlipPlayer(horizontal);
-
     }
     private void MovePlayer(float horizontal)
     {
@@ -71,7 +80,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("In collision and jumping stop movement");
+           // Debug.Log("In collision and jumping stop movement");
         }
       
         // Set the animators Speed parameter we set to check wether or not the player is moving fast enough to change animation states. We want magnitude not direction, thus Abs.
@@ -104,6 +113,16 @@ public class PlayerController : MonoBehaviour
             vertVel = 0;
         myRigidbody.velocity = new Vector2(vertVel, height);
         
+    }
+
+    public void StopPlayer()
+    {
+        canmove = false;
+        myAnimator.SetFloat("Speed", 0);
+    }
+    public void StartPlayer()
+    {
+        canmove = true;
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
