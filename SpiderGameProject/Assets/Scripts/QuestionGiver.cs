@@ -1,21 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionGiver : MonoBehaviour
 {
     [SerializeField]
     private float AssertionRange = 10; // how far the player must be to trigger the question
 
-    [SerializeField]
-    private string Question; // temp quesiton metric will change later
+    // [SerializeField]
+    // private string Question; // temp quesiton metric will change later
+
+    
+    public Question question;
 
     private bool Active = true;
     private CircleCollider2D rangeCheck;
     private Animator myAnimator;
     private GameObject player;
     private GameObject questionMark;
-
+    private QuestionManager questionManager;
+    private Text textQuestion;
+    private Text textAnswer;
 
 
     PlayerController playerControl;
@@ -23,19 +29,17 @@ public class QuestionGiver : MonoBehaviour
     void Start()
     {
         playerControl = GameObject.Find("Player").GetComponent<PlayerController>();
-        /*  rangeCheck = gameObject.AddComponent(typeof(CircleCollider2D)) as CircleCollider2D;
-
-          rangeCheck.isTrigger = true;
-          rangeCheck.radius = AssertionRange; // makes the collider span the radius of the assertion range.
-          rangeCheck.enabled = true;*/
-        myAnimator = GetComponent<Animator>();
+        questionManager = GameObject.Find("QuestionManager").GetComponent<QuestionManager>();
+       // questionMark = GetComponentInChildren<Animatator> //("QuestionMark");
+        myAnimator = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-        // add a question 
+        GetComponentInChildren<CircleCollider2D>().radius = AssertionRange;
+        textQuestion = questionManager.dialogQuestion; //(Text)GameObject.Find("Question");
+        textAnswer = questionManager.dialogAnswers;
+        
+  
+ 
 
-        // 
-
-
-        questionMark = GameObject.FindGameObjectWithTag("Question");
         //questionMark.transform.position = new Vector2(transform.position.x, transform.position.y + 20);
     }
 
@@ -44,16 +48,34 @@ public class QuestionGiver : MonoBehaviour
     {
         if (!Active)
             enabled = false;
-        GetComponent<CircleCollider2D>().radius = AssertionRange;
+        if(question.questionAnswered)
+        {
+            StartCoroutine(FinishQuestion());
+        }
+      
     }
     void AskQuestion()
     {
-        Debug.Log("What is the airspeed velocity of an unladen swallow?");
+        //Debug.Log("What is the airspeed velocity of an unladen swallow?");
+        
+       // questionManager.currentQuestion = question;
         playerControl.StopPlayer();
+        questionManager.ShowQuestion(question);
+      //  new WaitForSecondsRealtime(4);
+     //   FinishQuestion();
     }
-    void FinishQuestion()
+    [SerializeField]
+    public void AnswerQuestion()
     {
-        // myAnimator.SetTrigger(Quit);
+
+    }
+
+    IEnumerator FinishQuestion()
+    {
+        yield return new WaitForSeconds(3); // waits 4 seconds then hides quesiton
+        myAnimator.SetTrigger("Quit");
+        playerControl.StartPlayer();
+       GetComponent<CircleCollider2D>().enabled = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
