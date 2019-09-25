@@ -56,10 +56,11 @@ public class QuestionGiver : MonoBehaviour
     }
     void AskQuestion()
     {
-        //Debug.Log("What is the airspeed velocity of an unladen swallow?");
+        
         
        // questionManager.currentQuestion = question;
         playerControl.StopPlayer();
+        Debug.Log("Pausing Player");
         questionManager.ShowQuestion(question);
       //  new WaitForSecondsRealtime(4);
      //   FinishQuestion();

@@ -241,8 +241,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24686347, y: 0.2518759}
   m_AnchorMax: {x: 0.7325496, y: 0.85613143}
-  m_AnchoredPosition: {x: -872.4, y: -26.3}
-  m_SizeDelta: {x: -105.3, y: 51.9}
+  m_AnchoredPosition: {x: -929.29, y: -25.95}
+  m_SizeDelta: {x: 8.485016, y: 51.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &172543257
 MonoBehaviour:
@@ -503,8 +503,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.52011514}
-  m_AnchoredPosition: {x: -16.592, y: 115.9}
-  m_SizeDelta: {x: 295.42, y: 49.2}
+  m_AnchoredPosition: {x: -31.58, y: 90.6}
+  m_SizeDelta: {x: 262.67, y: 49.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &396047015
 MonoBehaviour:
@@ -918,7 +918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664154165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 95.6, y: 11.5, z: 0}
+  m_LocalPosition: {x: 128.7, y: 11.5, z: 0}
   m_LocalScale: {x: 10, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1268,8 +1268,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.25, y: 15.7}
-  m_SizeDelta: {x: 280.1, y: 130.5}
+  m_AnchoredPosition: {x: -38.16, y: 2.86}
+  m_SizeDelta: {x: 259.58, y: 111.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853294183
 MonoBehaviour:
@@ -1304,7 +1304,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Answers
 --- !u!222 &853294184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1984,7 +1984,7 @@ PrefabInstance:
     - target: {fileID: 3821135330854083506, guid: 5d72ec6a65dbbee4e8a48c3dbd65dae4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.77
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 3821135330854083506, guid: 5d72ec6a65dbbee4e8a48c3dbd65dae4,
         type: 3}
@@ -2065,6 +2065,16 @@ PrefabInstance:
         type: 3}
       propertyPath: question.answers.Array.data[0]
       value: Idk
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821135330854083505, guid: 5d72ec6a65dbbee4e8a48c3dbd65dae4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821135330854083508, guid: 5d72ec6a65dbbee4e8a48c3dbd65dae4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d72ec6a65dbbee4e8a48c3dbd65dae4, type: 3}
