@@ -25,6 +25,7 @@ public class QuestionManager : MonoBehaviour
     }
     public void ShowQuestion(Question question)
     {
+        Reset();
         currentQuestion = question;
         dialogQuestion.text = question.question;
         dialogAnswers.text = "";
@@ -66,6 +67,7 @@ public class QuestionManager : MonoBehaviour
     private void Reset()
     {
         dialogResponse.text = "";
+
         
     }
 }
