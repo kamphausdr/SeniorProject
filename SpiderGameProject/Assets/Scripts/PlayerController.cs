@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canmove)
-        {
+       
+        
             float horizontal = Input.GetAxis("Horizontal"); // Provides the input for the player, designed to work with any device
             if (Jumping) // check to see if player is jumping
             {
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
                 // Handle flipping ( if it is necessary it will occur)
                 FlipPlayer(horizontal);
             }
-        }
+        
     }
     private void MovePlayer(float horizontal)
     {
@@ -115,15 +115,15 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void StopPlayer()
-    {
-        canmove = false;
-        myAnimator.SetFloat("Speed", 0);
-    }
-    public void StartPlayer()
-    {
-        canmove = true;
-    }
+    //public void StopPlayer()
+    //{
+    //    canmove = false;
+    //    myAnimator.SetFloat("Speed", 0);
+    //}
+    //public void StartPlayer()
+    //{
+    //    canmove = true;
+    //}
     void OnCollisionEnter2D(Collision2D collision)
     {
         inColision = true;

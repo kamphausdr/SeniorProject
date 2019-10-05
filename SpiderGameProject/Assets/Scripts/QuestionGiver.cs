@@ -59,23 +59,23 @@ public class QuestionGiver : MonoBehaviour
         
         
        // questionManager.currentQuestion = question;
-        playerControl.StopPlayer();
+        //playerControl.StopPlayer();
         Debug.Log("Pausing Player");
         questionManager.ShowQuestion(question);
       //  new WaitForSecondsRealtime(4);
      //   FinishQuestion();
     }
     [SerializeField]
-    public void AnswerQuestion()
+    public void LeaveQuestion()
     {
-
+        questionManager.HideQestion();
     }
 
     IEnumerator FinishQuestion()
     {
         yield return new WaitForSeconds(3); // waits 4 seconds then hides quesiton
         myAnimator.SetTrigger("Quit");
-        playerControl.StartPlayer();
+      //  playerControl.StartPlayer();
        GetComponent<CircleCollider2D>().enabled = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -83,6 +83,13 @@ public class QuestionGiver : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             AskQuestion();
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            LeaveQuestion();
         }
     }
 }
