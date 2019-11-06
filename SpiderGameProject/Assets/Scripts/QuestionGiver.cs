@@ -13,36 +13,70 @@ public class QuestionGiver : MonoBehaviour
 
     
     public Question question;
-
     private bool Active = true;
     private CircleCollider2D rangeCheck;
     private Animator myAnimator;
     private GameObject player;
     private GameObject questionMark;
-    private QuestionManager questionManager;
+    public QuestionManager questionManager;
     private Text textQuestion;
-    private Text textAnswer;
-
-
+    private Text[] textAnswer;
+    public TextAsset importText;
+    public int questionIndex;
     PlayerController playerControl;
     // Start is called before the first frame update
     void Start()
     {
+        question = new Question();
+        parseText(questionIndex);
+
         playerControl = GameObject.Find("Player").GetComponent<PlayerController>();
         questionManager = GameObject.Find("QuestionManager").GetComponent<QuestionManager>();
        // questionMark = GetComponentInChildren<Animatator> //("QuestionMark");
-        myAnimator = GetComponentInChildren<Animator>();
+        myAnimator =  GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         GetComponentInChildren<CircleCollider2D>().radius = AssertionRange;
         textQuestion = questionManager.dialogQuestion; //(Text)GameObject.Find("Question");
         textAnswer = questionManager.dialogAnswers;
         
-  
+
  
 
         //questionMark.transform.position = new Vector2(transform.position.x, transform.position.y + 20);
     }
+    void parseText(int questionIndex)
+    {
+        string[] pickQuestion;
+        pickQuestion = importText.text.Split('%');
 
+      //  Debug.Log("Part3:" + pickQuestion[2]);
+    
+        string[] parseText; 
+        parseText = pickQuestion[questionIndex].Split('`');
+
+        int answerIndex = 0;
+        for (int i = 0; i <parseText.Length; i++)
+        {
+            if (parseText[i] == "Q")
+            {
+                i++;
+              //  Debug.Log(parseText[i]);
+                question.question = parseText[i];
+            }
+            if (parseText[i] == "*A")
+            {
+                question.correctAnswerIndex = answerIndex;
+                i++;
+                question.answers[answerIndex++] = parseText[i];
+
+            }
+            if (parseText[i] == "A")
+            {
+                i++;
+                question.answers[answerIndex++] = parseText[i];
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -82,6 +116,8 @@ public class QuestionGiver : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+          //  Animator temp = GetComponent<Animator>();
+        //    temp.SetTrigger("Turn");
             AskQuestion();
         }
     }
@@ -89,6 +125,8 @@ public class QuestionGiver : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+         //   Animator temp = GetComponent<Animator>();
+         //   temp.SetTrigger("Forward");
             LeaveQuestion();
         }
     }

@@ -1,0 +1,10 @@
+Q` What is the airspeed and velocity of a Swallow
+`*A` What do you mean african or european?
+`A` Blue
+`A` 143
+`A` Yellow
+%Q` What is the word?
+`A` Given
+`*A` The Bird
+`A` Orange
+`A` Blue

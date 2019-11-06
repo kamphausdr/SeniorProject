@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class QuestionManager : MonoBehaviour
 {
     public Text dialogQuestion;
-    public Text dialogAnswers;
+    public Text[] dialogAnswers;
     public Text dialogResponse;
     public Canvas questionCanvas;
     public Animator animatior;
@@ -28,11 +28,14 @@ public class QuestionManager : MonoBehaviour
         Reset();
         currentQuestion = question;
         dialogQuestion.text = question.question;
-        dialogAnswers.text = "";
+        //  dialogAnswers.text = "";
+        int i = 0;
         foreach (string answer in question.answers)
         {
-            dialogAnswers.text += answer + System.Environment.NewLine;
+           dialogAnswers[i].text = answer;
+            i++;
         }
+   
         animatior.SetBool("IsOpen", true);
        // questionCanvas.enabled = true;
 

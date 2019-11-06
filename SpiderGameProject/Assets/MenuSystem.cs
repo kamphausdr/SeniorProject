@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuSystem : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+ 
 
     // Update is called once per frame
     void Update()
@@ -23,6 +20,6 @@ public class MenuSystem : MonoBehaviour
     }
     public void StartButton()
     {
-        SceneManager.LoadScene("Test Level", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Test Level");
     }
 }
