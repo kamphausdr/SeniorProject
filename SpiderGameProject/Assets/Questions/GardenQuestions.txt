@@ -1,0 +1,10 @@
+Q` How do plants get their food?
+`A` In the kitchen
+`A` They catch their food
+`*A` Photosynthesis
+`A` They dont eat food they drink water.
+%Q` What kind of animal is a spider?
+`A` Bug
+`*A` Aracnid
+`A` Insect
+`A` Reptile

@@ -20,6 +20,14 @@ public class MenuSystem : MonoBehaviour
     }
     public void StartButton()
     {
+        SceneManager.LoadScene("Overworld");
+    }
+    public void LoadDemo()
+    {
         SceneManager.LoadScene("Test Level");
     }
-}
+    public void LoadLevel(string level)
+    {
+        SceneManager.LoadScene(level);
+    }
+    }
