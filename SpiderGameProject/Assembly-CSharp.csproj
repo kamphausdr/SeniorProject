@@ -67,8 +67,10 @@
     <Compile Include="Assets\MenuSystem.cs" />
     <Compile Include="Assets\QuestionManager.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerSettings.cs" />
     <Compile Include="Assets\Scripts\Question.cs" />
     <Compile Include="Assets\Scripts\QuestionGiver.cs" />
+    <Compile Include="Assets\Scripts\Save.cs" />
     <Compile Include="Assets\TextChange.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

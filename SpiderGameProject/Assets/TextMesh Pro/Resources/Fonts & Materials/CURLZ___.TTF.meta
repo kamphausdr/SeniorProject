@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5e37f7e78827dff41b9a1ccb5a98b909
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Curlz MT
+  fontNames:
+  - Curlz MT
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ea13e4abc1968454db4606d7e48d6080, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

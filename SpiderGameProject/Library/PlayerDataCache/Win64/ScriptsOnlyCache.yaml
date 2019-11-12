@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - GamePause
     - MenuSystem
     - PlayerController
+    - PlayerSettings
     - QuestionGiver
     - QuestionManager
     - TextChange
@@ -42,6 +43,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.RawImage
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
@@ -80,8 +83,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 616}
     - Class: 114
       Script: {instanceID: 9700}
     - Class: 114
@@ -132,13 +133,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    - Class: 19719996
-      Script: {instanceID: 0}
     - Class: 156049354
-      Script: {instanceID: 0}
-    - Class: 483693784
-      Script: {instanceID: 0}
-    - Class: 1839735485
       Script: {instanceID: 0}
     Assets/Scenes/MainMenu.unity:
     - Class: 1
@@ -159,6 +154,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -170,6 +169,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9700}
     - Class: 114
+      Script: {instanceID: 9864}
+    - Class: 114
       Script: {instanceID: 9906}
     - Class: 114
       Script: {instanceID: 10034}
@@ -180,11 +181,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10754}
     - Class: 114
+      Script: {instanceID: 10774}
+    - Class: 114
       Script: {instanceID: 10848}
     - Class: 114
       Script: {instanceID: 10988}
     - Class: 114
       Script: {instanceID: 11002}
+    - Class: 114
+      Script: {instanceID: 11208}
     - Class: 114
       Script: {instanceID: 11280}
     - Class: 114
@@ -195,6 +200,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11588}
     - Class: 114
       Script: {instanceID: 11698}
+    - Class: 114
+      Script: {instanceID: 11732}
+    - Class: 114
+      Script: {instanceID: 15966}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -228,6 +237,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -252,6 +265,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11574}
     - Class: 114
       Script: {instanceID: 11698}
+    - Class: 114
+      Script: {instanceID: 15966}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -906,7 +921,7 @@ ScriptsOnlyBuild:
     className: TMPro_InstructionOverlay
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: b52c6f1d2a310d42c209f7637d899c8a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuSystem
@@ -1042,6 +1057,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 737dd2c39fc87f9da26fc8c911f84f24
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerSettings
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
