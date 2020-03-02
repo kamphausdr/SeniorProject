@@ -12,7 +12,7 @@ public class Question
     public string[] answers;
 
     public int correctAnswerIndex;
-
+    public HintGiver hint;
     public bool questionAnswered;
     public Question()
     {

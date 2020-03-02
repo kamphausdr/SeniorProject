@@ -14,22 +14,24 @@ public class QuestionGiver : MonoBehaviour
     
     public Question question;
     private bool Active = true;
-    private CircleCollider2D rangeCheck;
+
     private Animator myAnimator;
     private GameObject player;
     private GameObject questionMark;
     public QuestionManager questionManager;
+    public HintGiver hintPair;
     private Text textQuestion;
     private Text[] textAnswer;
     public TextAsset importText;
     public int questionIndex;
+    public HintGiver hint;
     PlayerController playerControl;
     // Start is called before the first frame update
     void Start()
     {
         question = new Question();
         parseText(questionIndex);
-
+        question.hint = hint;
         playerControl = GameObject.Find("Player").GetComponent<PlayerController>();
         questionManager = GameObject.Find("QuestionManager").GetComponent<QuestionManager>();
        // questionMark = GetComponentInChildren<Animatator> //("QuestionMark");
@@ -85,6 +87,8 @@ public class QuestionGiver : MonoBehaviour
         if(question.questionAnswered)
         {
             StartCoroutine(FinishQuestion());
+            Active = false;
+            this.enabled = false;
         }
       
     }
@@ -110,7 +114,10 @@ public class QuestionGiver : MonoBehaviour
         yield return new WaitForSeconds(3); // waits 4 seconds then hides quesiton
         myAnimator.SetTrigger("Quit");
       //  playerControl.StartPlayer();
-       GetComponent<CircleCollider2D>().enabled = false;
+   GetComponent<CircleCollider2D>().enabled = false;
+       // hint.enabled = false;
+        Debug.Log("collision off");
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

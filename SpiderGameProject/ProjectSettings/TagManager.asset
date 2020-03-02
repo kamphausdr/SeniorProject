@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Question
   - Answer
+  - Hint
   layers:
   - Default
   - TransparentFX
@@ -16,14 +17,14 @@ TagManager:
   - 
   - 
   - Background
+  - Foreground
+  - Objects
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Enemy
   - Player
   - 
   - 
@@ -40,8 +41,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 3521597365
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: objects
+    uniqueID: 2878110227
     locked: 0
   - name: Player
     uniqueID: 3702010453

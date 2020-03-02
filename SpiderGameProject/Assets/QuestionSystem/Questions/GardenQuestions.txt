@@ -1,0 +1,25 @@
+Q` How do plants get their food?
+`A` In the kitchen
+`A` They don't need food.
+`*A` Photosynthesis
+`A` From the grocery store.
+%Q` What kind of animal is a spider?
+`A` Bug
+`*A` Aracnid
+`A` Insect
+`A` Reptile
+%Q` Caterpillars are at what stage in a butterfly's life?
+`A` Metamorphis
+`*A` Larval
+`A` Worm
+`A` Flying
+%Q` Percipitation is the 3rd stage of what cycle
+`*A` Water Cycle
+`A` Bicycle
+`A` Cloud Cycle
+`A` Weather Cycle
+%Q` What are animals with no bones called.
+`A` No-Bones
+`A` Squishy
+`A` Boneless
+`*A` Invertibrates
