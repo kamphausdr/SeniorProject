@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
     private bool facingRight;
     private bool inColision = false;
 
-    private bool canmove = true; // when player is answering a question, they wont be able to move.
-
     // Start is called before the first frame update. Here we perform initialization
     void Start()
     {

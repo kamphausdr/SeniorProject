@@ -6,25 +6,16 @@ using UnityEngine.UI;
 public class PlayerSettings : MonoBehaviour
 {
     [SerializeField]
-    private Slider slider;
+    private Slider slider = null;
     [SerializeField]
-    private AudioSource myAudio;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private AudioSource myAudio = new AudioSource();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Awake()
     {
+        // If there is no existing music key in the settings file, then create one.
         if (!PlayerPrefs.HasKey("music"))
         {
-           
+           // Create the entry
             PlayerPrefs.SetFloat("music", slider.value);
             myAudio.enabled = true;
             myAudio.volume = slider.value;
@@ -32,13 +23,17 @@ public class PlayerSettings : MonoBehaviour
         }
         else
         {
+            // otherwise load the settings and change the dials to match the save file
             float volume = PlayerPrefs.GetFloat("music");
             if (volume == 0.0f)
+            // disable the music if the volume is 0
                 myAudio.enabled = false;
+
             else
             {
                 myAudio.enabled = true;
                 myAudio.volume = volume;
+                if(slider != null)
                 slider.value = volume;
 
             }
@@ -46,6 +41,7 @@ public class PlayerSettings : MonoBehaviour
     }
     public void ToggleMusic()
     {
+        // change the music from off to on, vice versa
         PlayerPrefs.SetFloat("music", slider.value);
         myAudio.volume = slider.value;
         if (slider.value > 0)
@@ -60,6 +56,4 @@ public class PlayerSettings : MonoBehaviour
         }
         PlayerPrefs.Save();
     }
-
-
 }

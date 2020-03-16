@@ -1939,7 +1939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbf5fb1bcc62a46b0c0ed394ba5391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackgroundObject: {fileID: 0}
+  BackgroundObject: {fileID: 889390455}
   Target: {fileID: 2056899741}
   speed: 2
 --- !u!20 &519420031
@@ -6173,7 +6173,7 @@ GameObject:
   - component: {fileID: 1718303363}
   - component: {fileID: 1718303362}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6191,9 +6191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43de57041cd6c6d41a60e019060d8943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelMaxScore: 1000
-  levelName: Garden
-  player: {fileID: 0}
+  levelName: Garden Level
+  player: {fileID: 2056899741}
+  pointsPerQuestion: 100
+  wrongQuestionPentalty: 25
 --- !u!4 &1718303363
 Transform:
   m_ObjectHideFlags: 0

@@ -1,5 +1,13 @@
 sceneSetups:
-- path: Assets/Scenes/Garden Level.unity
+- path: Assets/Scenes/Overworld.unity
   isLoaded: 1
   isActive: 1
+  isSubScene: 0
+- path: Assets/Scenes/Test Level.unity
+  isLoaded: 0
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/Garden Level.unity
+  isLoaded: 0
+  isActive: 0
   isSubScene: 0

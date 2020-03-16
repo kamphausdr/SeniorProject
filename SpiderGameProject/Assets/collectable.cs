@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class collectable : MonoBehaviour
 {
-    public GameManager gameManager;
+    public LevelManager gameManager;
     // Start is called before the first frame update
     void Start()
     {

@@ -1,121 +1,109 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using UnityEngine.SceneManagement;
+using System.IO;
+using UnityEngine;
+using System;
+
 public class GameManager : MonoBehaviour
-{ 
-    public int LevelMaxScore = 1000;
-    private int playerScore;
-    private int questionsWrong;
-    private int numberofStars = 0;
-    private bool levelComplete;
-    public string levelName;
-    public GameObject player;
+{
+    private Save currentData;
+    private const string fileName = "/gamesave.save";
+   // private LevelManager currentLevel;
     // Start is called before the first frame update
-    public void questionWrong(int numWrong)
+    void Awake()
     {
-        questionsWrong += numWrong;
+        Debug.Log("Running the load");
+        load();
     }
     public int getScore()
     {
-        return playerScore;
+        return currentData.Score;
+        
     }
-    public void AddPoints(int points)
+    public Level getLevel(string name)
     {
-        playerScore += points;
+        return currentData.FindLevel(name);
     }
-    private void updateScore()
+    public Level getLevel(Level level)
     {
-        playerScore = 1000 - questionsWrong * 100;
+        return currentData.FindLevel(level);
     }
-    public void endLevel()
+    /// <summary>
+    /// Gets the level data from other source and updates data store for that level.
+    /// </summary>
+    /// <param name="level"></param>
+    private void takeLevelData(Level level)
     {
-        updateScore();
-        if (playerScore == LevelMaxScore)
-            numberofStars = 3;
-
-        else if (playerScore >= LevelMaxScore / 2)
-            numberofStars = 2;
-        else
-            numberofStars = 1;
-        levelComplete = true;
-        SceneManager.LoadScene("Overworld");
-        // save();
+        // find the old level based solely off name
+        Level oldLevel = getLevel(level.levelName);
+        // get the index of old level so we can change the value of the level.
+        int index = currentData.Levels.IndexOf(oldLevel);
+        currentData.Levels[index] = level;
     }
-    private Save CreateSaveObject()
+    public void unlockLevelDependents(Level reqLevel)
     {
-        Save save = new Save();
-      
-
-        Level level = new Level();
-        level.score = getScore();
-        level.starsEarned = numberofStars;
-        level.levelName = levelName;
-        if (!levelComplete)
+        // get the level it depends on
+        Level dependentLevel = currentData.FindDependentLevel(reqLevel);
+        if(dependentLevel != null)
         {
-            foreach (QuestionGiver questionGiver in FindSceneObjectsOfType(typeof(QuestionGiver)))
-            {
-                bool newGiverBool;
-                 newGiverBool = questionGiver.enabled;
-                level.questionGiverEnabled.Add(newGiverBool);
-                // level.questionGivers.Add(questionGiver);
-
-            }
-        }
-        level.playerPosition = player.transform.position;
-        save.Levels.Add(level);
-        return save;
-    }
-    public void save()
-    {
-        Save save = CreateSaveObject();
-        Debug.Log("Attempting to save");
-        BinaryFormatter bin = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "gamesave.save");
-        bin.Serialize(file, save);
-        file.Close();
-
-
-       
-    }
-    public void load()
-    {
-        Debug.Log("Attempting to load");
-        if (File.Exists(Application.persistentDataPath+ "/gamesave.save"))
-        {
-            Debug.Log("Supposedly loaded?");
-            BinaryFormatter bin = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
-            Save save = (Save)bin.Deserialize(file);
-            file.Close();
-            Level myLevel = save.FindLevel(levelName);
-            int i = 0;
-           foreach (QuestionGiver questionGiver in FindSceneObjectsOfType(typeof(QuestionGiver)))
-            {
-                bool newGiverBool;
-                newGiverBool = questionGiver.enabled;
-                questionGiver.enabled = myLevel.questionGiverEnabled[i];
-                // level.questionGivers.Add(questionGiver);
-                i++;
-            }
-            playerScore = myLevel.score;
-            player.transform.position = myLevel.playerPosition;
-
+            currentData.FindLevel(dependentLevel.levelName).unlocked = true;
         }
     }
-    void Start()
-    {
-       
-        load();
-        player = GameObject.Find("Player");
-    }
-
     // Update is called once per frame
     void Update()
     {
         
+    }
+    private Save CreateSaveObject()
+    {
+        Save save = new Save();
+        Level kitchen = new Level("Test Level");
+        Level gardenLevel = new Level("Garden Level");
+        kitchen.dependentLevel = gardenLevel;
+        gardenLevel.unlocked = true;
+        save.Levels.Add(kitchen);
+        save.Levels.Add(gardenLevel);
+        save.CurrentLevelOn = gardenLevel.levelName;
+        // make list of all the levels ( hard coded for now :((( )
+
+        return save;
+    }
+    public void save(Save dataFile)
+    {
+        Debug.Log("Attempting to save");
+        BinaryFormatter bin = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + fileName);
+        bin.Serialize(file, dataFile);
+        file.Close();
+    }
+    public void saveLevel(Level level)
+    {
+        takeLevelData(level);
+        save();
+    }
+    public void save()
+    {
+        save(currentData);   
+    }
+    public void load()
+    {
+        Save saveData;
+        Debug.Log("Attempting to load");
+        if (File.Exists(Application.persistentDataPath + fileName))
+        {
+            Debug.Log("Supposedly loaded?");
+            BinaryFormatter bin = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + fileName, FileMode.Open);
+            saveData = (Save)bin.Deserialize(file);
+            file.Close();
+        }
+        else
+        {
+            saveData = CreateSaveObject();
+        }
+        currentData = saveData;   
     }
 }

@@ -7,9 +7,9 @@ public class CameraFollow : MonoBehaviour
     private Transform targetTransform;
 
     [SerializeField]
-    private GameObject BackgroundObject;
+    private GameObject BackgroundObject = null;
     [SerializeField]
-    private GameObject Target;
+    private GameObject Target = null;
     private float leftBounds, rightBounds, botBounds, topBounds;
     public float speed = 2.0f;
    

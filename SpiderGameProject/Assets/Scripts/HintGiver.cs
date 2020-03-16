@@ -11,7 +11,7 @@ public class HintGiver : MonoBehaviour
     [SerializeField]
     public Animator animatiorCanvas;
     [SerializeField]
-    private string Hint;
+    private string Hint = "";
     [SerializeField]
 
     public Text hintText;

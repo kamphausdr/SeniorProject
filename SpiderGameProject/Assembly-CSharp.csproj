@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\collectable.cs" />
+    <Compile Include="Assets\LevelItem.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\GamePause.cs" />
     <Compile Include="Assets\Scripts\HintGiver.cs" />
@@ -75,7 +76,9 @@
     <Compile Include="Assets\Scripts\QuestionManager.cs" />
     <Compile Include="Assets\Scripts\Save.cs" />
     <Compile Include="Assets\Scripts\TextChange.cs" />
+    <Compile Include="Assets\StarRate.cs" />
     <Compile Include="Assets\System\GameManager.cs" />
+    <Compile Include="Assets\System\LevelManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

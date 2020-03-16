@@ -8,14 +8,18 @@ public class MenuSystem : MonoBehaviour
     public GameObject MainMenuUI;
     public GameObject SettingsUI;
     // Start is called before the first frame update
- 
+    private GameObject gameManager;
 
     // Update is called once per frame
     void Update()
     {
         
     }
-   
+    private void Awake()
+    {
+        gameManager = GameObject.Find("GameManager");
+    }
+
     public  void QuitButton()
     {
         Application.Quit();
@@ -39,8 +43,13 @@ public class MenuSystem : MonoBehaviour
     }
     public void LoadLevel(string level)
     {
-        transferLevel(level);
+        Scene scene = SceneManager.GetSceneByName(level);
+      //  transferLevel(level);
+
+     
         SceneManager.LoadScene(level);
+        SceneManager.MoveGameObjectToScene(gameManager, scene);
+        Debug.Log("GameManager should be moved?");
     }
     private void transferLevel(string levelName)
     {
