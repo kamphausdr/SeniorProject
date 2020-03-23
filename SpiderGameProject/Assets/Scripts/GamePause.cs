@@ -53,7 +53,6 @@ public class GamePause : MonoBehaviour
     }
     public void QuitGame()
     {
-        Debug.Log("Quit!");
         Application.Quit();
     }
 }

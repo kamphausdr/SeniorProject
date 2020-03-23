@@ -75,7 +75,6 @@ public class HintGiver : MonoBehaviour
     [SerializeField]
     public void HideHint()
     {
-        Debug.Log("unhinting Player");
         animatiorCanvas.SetBool("IsOpen", false);
         
         // questionManager.HideQestion();

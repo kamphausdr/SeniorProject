@@ -57,15 +57,22 @@ public class Save
     /// <returns></returns>
     public Level FindDependentLevel(Level reqLevel)
     {
-     
         foreach (Level levelI in Levels)
         {
-            if (levelI.dependentLevel.levelName == reqLevel.levelName)
-                return reqLevel;
+            // First make sure that the level dependent level isnt null, because if it is, trying to find its name will cause issues.
+            if (levelI.dependentLevel != null)
+            {
+                // check if the depdendent level's name matches the required levels name - name is the only thing that matters
+                if (levelI.dependentLevel.levelName == reqLevel.levelName)
+                {
+                    return levelI;
+                }
+            }
+          
+           
         }
               return null;
     }
-
 }
 
 /// <summary>

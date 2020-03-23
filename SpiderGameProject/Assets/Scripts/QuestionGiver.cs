@@ -85,7 +85,7 @@ public class QuestionGiver : MonoBehaviour
         
        // questionManager.currentQuestion = question;
         //playerControl.StopPlayer();
-        Debug.Log("Pausing Player");
+    
         questionManager.ShowQuestion(question);
     }
     [SerializeField]
@@ -101,7 +101,7 @@ public class QuestionGiver : MonoBehaviour
       //  playerControl.StartPlayer();
    GetComponent<CircleCollider2D>().enabled = false;
        // hint.enabled = false;
-        Debug.Log("collision off");
+
 
     }
     private void OnCollisionEnter2D(Collision2D collision)

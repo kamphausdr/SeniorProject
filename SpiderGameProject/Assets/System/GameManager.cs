@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("Running the load");
         load();
     }
     public int getScore()
@@ -60,7 +59,7 @@ public class GameManager : MonoBehaviour
     private Save CreateSaveObject()
     {
         Save save = new Save();
-        Level kitchen = new Level("Test Level");
+        Level kitchen = new Level("Kitchen Level");
         Level gardenLevel = new Level("Garden Level");
         kitchen.dependentLevel = gardenLevel;
         gardenLevel.unlocked = true;
@@ -84,6 +83,10 @@ public class GameManager : MonoBehaviour
         takeLevelData(level);
         save();
     }
+    public string test()
+    {
+        return this.name;
+    }
     public void save()
     {
         save(currentData);   
@@ -91,10 +94,8 @@ public class GameManager : MonoBehaviour
     public void load()
     {
         Save saveData;
-        Debug.Log("Attempting to load");
         if (File.Exists(Application.persistentDataPath + fileName))
         {
-            Debug.Log("Supposedly loaded?");
             BinaryFormatter bin = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + fileName, FileMode.Open);
             saveData = (Save)bin.Deserialize(file);

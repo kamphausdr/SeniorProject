@@ -34,23 +34,30 @@ public class MenuSystem : MonoBehaviour
         SettingsUI.SetActive(true);
         MainMenuUI.SetActive(false);
     }
-    public void LoadDemo()
-    {
-
-        transferLevel("Test Level");
-        SceneManager.LoadScene("Test Level");
-        
-    }
+   
     public void LoadLevel(string level)
     {
-        Scene scene = SceneManager.GetSceneByName(level);
-      //  transferLevel(level);
-
-     
-        SceneManager.LoadScene(level);
-        SceneManager.MoveGameObjectToScene(gameManager, scene);
-        Debug.Log("GameManager should be moved?");
+        StartCoroutine(LoadLevelAsync(level));
     }
+ public  IEnumerator LoadLevelAsync(string level)
+    {
+        Scene newScene; 
+        Scene thisScene = SceneManager.GetActiveScene();
+        //  transferLevel(level);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
+       // SceneManager.LoadScene(level);
+        newScene = SceneManager.GetSceneByName(level);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        SceneManager.MoveGameObjectToScene(gameManager, newScene);
+        SceneManager.UnloadSceneAsync(thisScene);
+    }
+
+
     private void transferLevel(string levelName)
     {
      //   Scene sceneToLoad;
