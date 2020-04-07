@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     // keeps track of direction player is facing, to allow flipping of sprite as needed
     private bool facingRight;
     private bool inColision = false;
+    private bool canmove = true;
 
     // Start is called before the first frame update. Here we perform initialization
     void Start()
@@ -39,8 +40,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        
+
+        if (canmove)
+        {
             float horizontal = Input.GetAxis("Horizontal"); // Provides the input for the player, designed to work with any device
             if (Jumping) // check to see if player is jumping
             {
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
                     // myCollider.sharedMaterial.friction = 0.4f;
                 }
             }
-         
+
             {
                 MovePlayer(horizontal); // Move the player with our function, at the players input velocity.
                 if (Input.GetKeyUp(KeyCode.Space) && !Jumping)
@@ -62,24 +64,21 @@ public class PlayerController : MonoBehaviour
                 // Handle flipping ( if it is necessary it will occur)
                 FlipPlayer(horizontal);
             }
-        
+        }
     }
     private void MovePlayer(float horizontal)
     {
         // move the player in the direction by the input at the speed of the player also maintaining his current vertical velocity.
+    
+            if (!(inColision && Jumping))
+            {
 
-        if (!(inColision && Jumping))
-        {
-         
-                 
+
                 // myCollider.sharedMaterial.friction = 0;
                 myRigidbody.velocity = new Vector2(horizontal * MovementFactor, myRigidbody.velocity.y);
-            myAnimator.SetFloat("Speed", Mathf.Abs(horizontal));
-        }
-        else
-        {
-           // Debug.Log("In collision and jumping stop movement");
-        }
+                myAnimator.SetFloat("Speed", Mathf.Abs(horizontal));
+            }
+       
       
         // Set the animators Speed parameter we set to check wether or not the player is moving fast enough to change animation states. We want magnitude not direction, thus Abs.
    
@@ -113,15 +112,15 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    //public void StopPlayer()
-    //{
-    //    canmove = false;
-    //    myAnimator.SetFloat("Speed", 0);
-    //}
-    //public void StartPlayer()
-    //{
-    //    canmove = true;
-    //}
+    public void StopPlayer()
+    {
+        canmove = false;
+        myAnimator.SetFloat("Speed", 0);
+    }
+    public void StartPlayer()
+    {
+        canmove = true;
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         inColision = true;

@@ -7,7 +7,7 @@ using System.IO;
 using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
-    private int playerScore;
+    private int playerScore = 0;
     private int numberofStars = 0;
     private bool levelComplete = false;
     public string levelName;
@@ -34,7 +34,6 @@ public class LevelManager : MonoBehaviour
 
         // sets the number of questions in the level to how ever many question givers are placed...
       
-
     }
     public int getScore()
     {
@@ -59,7 +58,7 @@ public class LevelManager : MonoBehaviour
 
         levelComplete = true;
         Scene thisScene = SceneManager.GetActiveScene();
-        float correctRatio = playerScore / numberOfQuestions * pointsPerQuestion;
+        float correctRatio = (float) playerScore / (float) (numberOfQuestions * pointsPerQuestion);
 
         if (correctRatio >= 0.9f)
             numberofStars = 3;
@@ -69,8 +68,8 @@ public class LevelManager : MonoBehaviour
         else
             numberofStars = 1;
         levelComplete = true;
-
-        Debug.Log("Ending level: score: " + playerScore.ToString() + "Stars Earned: " + numberofStars);
+     
+        Debug.Log("Ending level: score: " + playerScore.ToString() + "Stars Earned: " + numberofStars + "Ratio" + correctRatio);
 
         levelData.starsEarned = numberofStars;
         levelData.levelCompleted = levelComplete;

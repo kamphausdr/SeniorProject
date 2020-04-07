@@ -5864,6 +5864,7 @@ MonoBehaviour:
   levelName: Garden Level
   pointsPerQuestion: 100
   wrongQuestionPentalty: 25
+  numberOfQuestions: 4
 --- !u!4 &1718303363
 Transform:
   m_ObjectHideFlags: 0

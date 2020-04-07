@@ -15,28 +15,20 @@ public class HintGiver : MonoBehaviour
     [SerializeField]
 
     public Text hintText;
-
   
     private Animator myAnimator;
     private GameObject player;
-  
- 
     PlayerController playerControl;
+
     // Start is called before the first frame update
     void Start()
-    {
-      
+    {   
         playerControl = GameObject.Find("Player").GetComponent<PlayerController>();
 
         // questionMark = GetComponentInChildren<Animatator> //("QuestionMark");
         myAnimator = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         GetComponentInChildren<CircleCollider2D>().radius = AssertionRange;
-
-
-
-
-        //questionMark.transform.position = new Vector2(transform.position.x, transform.position.y + 20);
     }
    
     // Update is called once per frame
@@ -44,8 +36,6 @@ public class HintGiver : MonoBehaviour
     {
         if (!Active)
             enabled = false;
-   
-
     }
     public void shutDown()
     {
@@ -57,26 +47,17 @@ public class HintGiver : MonoBehaviour
     }
     public void hideHint()
     {
-
         //myAnimator.SetTrigger("hide");
     }
     void ShowHint()
     {
         hintText.text = Hint;
         animatiorCanvas.SetBool("IsOpen", true);
-
-        // questionManager.currentQuestion = question;
-        //playerControl.StopPlayer();
-
-       // questionManager.ShowQuestion(question);
-        //  new WaitForSecondsRealtime(4);
-        //   FinishQuestion();
     }
     [SerializeField]
     public void HideHint()
     {
-        animatiorCanvas.SetBool("IsOpen", false);
-        
+        animatiorCanvas.SetBool("IsOpen", false);     
         // questionManager.HideQestion();
     }
 
@@ -85,10 +66,7 @@ public class HintGiver : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-   
             ShowHint();
-          
-         
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

@@ -38,7 +38,6 @@ public class QuestionGiver : MonoBehaviour
         string[] pickQuestion;
         pickQuestion = importText.text.Split('%');
 
-      //  Debug.Log("Part3:" + pickQuestion[2]);
     
         string[] parseText; 
         parseText = pickQuestion[questionIndex].Split('`');
@@ -84,7 +83,7 @@ public class QuestionGiver : MonoBehaviour
         
         
        // questionManager.currentQuestion = question;
-        //playerControl.StopPlayer();
+        playerControl.StopPlayer();
     
         questionManager.ShowQuestion(question);
     }
@@ -98,7 +97,7 @@ public class QuestionGiver : MonoBehaviour
     {
         yield return new WaitForSeconds(3); // waits 4 seconds then hides quesiton
         myAnimator.SetTrigger("Quit");
-      //  playerControl.StartPlayer();
+       playerControl.StartPlayer();
    GetComponent<CircleCollider2D>().enabled = false;
        // hint.enabled = false;
 
