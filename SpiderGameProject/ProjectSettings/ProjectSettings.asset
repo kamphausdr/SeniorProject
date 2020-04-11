@@ -13,8 +13,8 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DK Games
-  productName: SpiderGamerProject
-  defaultCursor: {fileID: 2800000, guid: 388a9a2ed8235df4eb21d140893da4fc, type: 3}
+  productName: Web Browser
+  defaultCursor: {fileID: 2800000, guid: 6ef3a41489d941d47915c5c65389074e, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -278,7 +278,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 8556cda394433db42967621ea7f57275, type: 3}
+      m_Icon: {fileID: 2800000, guid: b16075a306ee2d94685d0a4f73c17ea0, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

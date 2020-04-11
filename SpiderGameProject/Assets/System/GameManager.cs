@@ -61,10 +61,13 @@ public class GameManager : MonoBehaviour
         Save save = new Save();
         Level kitchen = new Level("Kitchen Level");
         Level gardenLevel = new Level("Garden Level");
+        Level cyberLevel = new Level("Cyber Level");
         kitchen.dependentLevel = gardenLevel;
+        cyberLevel.dependentLevel = kitchen;
         gardenLevel.unlocked = true;
         save.Levels.Add(kitchen);
         save.Levels.Add(gardenLevel);
+        save.Levels.Add(cyberLevel);
         save.CurrentLevelOn = gardenLevel.levelName;
         // make list of all the levels ( hard coded for now :((( )
 

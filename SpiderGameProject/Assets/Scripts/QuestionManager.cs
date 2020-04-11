@@ -31,6 +31,7 @@ public class QuestionManager : MonoBehaviour
     /// <summary>
     /// How much time after the question is answered until it goes away and allows access.
     /// </summary>
+    public TextAsset importText;
     public float waitTime = 2f; // how long after the question is answered to wait;
     /// <summary>
     /// Tracks number of times the question was answered incorrectly, used for score tracking and hint triggering.

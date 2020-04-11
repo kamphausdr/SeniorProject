@@ -10,8 +10,8 @@ public class MenuSystem : MonoBehaviour
     public GameObject SettingsUI;
     // Start is called before the first frame update
     private GameObject gameManager;
+  //  public string levelDir = "Levels/";
     private bool guiShow = false;
-    private string Message;
     
     // Update is called once per frame
     void Update()
@@ -68,7 +68,7 @@ public class MenuSystem : MonoBehaviour
     }
 
 
-    public void deleteConfirm()
+   public void deleteConfirm()
     {
 
             string filepath = Application.persistentDataPath + "/gamesave.save";
@@ -76,7 +76,7 @@ public class MenuSystem : MonoBehaviour
             {
                 Debug.Log("Deleting file");
                 File.Delete(filepath);
-                Message = "File deleted!";
+       
                 guiShow = true;
                // OnGui();
 #if UNITY_EDITOR
@@ -87,10 +87,11 @@ public class MenuSystem : MonoBehaviour
             {
                 Debug.Log("File not Found");
 
-                Message = "File not Found";
+         
                 guiShow = true;
             }
     }
+    
     public void StartButton()
     {
         SceneManager.LoadScene("Overworld");
@@ -106,6 +107,7 @@ public class MenuSystem : MonoBehaviour
     }
  public  IEnumerator LoadLevelAsync(string level)
     {
+       // string levelPath = levelDir + level;
         Scene newScene; 
         Scene thisScene = SceneManager.GetActiveScene();
         //  transferLevel(level);

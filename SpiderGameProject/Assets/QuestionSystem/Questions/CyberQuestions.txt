@@ -1,0 +1,30 @@
+Q` What is a byte?
+`A` Mouth full of food
+`A` 6 Bots
+`*A` Set of 8 1s and 0s
+`A` 3 Bits
+%Q` What is electricity?
+`A` Magic force
+`A` It makes kites fly in a storm
+`A` Movement of water in a pipe.
+`*A` The movement of electrons between molecules that generate energy in the process.
+%Q` What is a CPU in a computer?
+`A` Cool Party Uniform
+`*A`Central Processing Unit
+`A` Character Personality Update
+`A` Calculate Percentage Utility
+%Q` What 'language' do computers use to interpret instructions.  
+`A` Robot
+`*A` Machine Language
+`A` English
+`A` C++
+%Q` Who invented the Tesla Coil?
+`A` Benjamin Franklin
+`A` Elohn Musk
+`*A` Nikoli Tesala
+`A` John Watt-son
+%Q` Where does a computer store information for long term.
+`A` Soft Drive
+`A` File Cabinet
+`*A` Hard Drive
+`A` RAM

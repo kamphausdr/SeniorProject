@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,10 +149,10 @@ TextureImporter:
       name: HeartLeaf
       rect:
         serializedVersion: 2
-        x: 460
-        y: 485
-        width: 311
-        height: 299
+        x: 492
+        y: 479
+        width: 290
+        height: 305
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,9 +171,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 36
-        y: 535
-        width: 345
-        height: 301
+        y: 523
+        width: 343
+        height: 313
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 18, y: 0, z: 0, w: 2}
@@ -212,8 +212,8 @@ TextureImporter:
       name: Pink Flower
       rect:
         serializedVersion: 2
-        x: 392
-        y: 92
+        x: 387
+        y: 74
         width: 353
         height: 290
       alignment: 9

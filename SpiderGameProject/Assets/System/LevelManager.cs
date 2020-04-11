@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
 
     public int pointsPerQuestion = 100;
     public int wrongQuestionPentalty = 25;
-    private int numberOfQuestions = 1;
+    public int numberOfQuestions = 1;
     private Level levelData;
     private GameObject gameManagerObject;
     private GameManager gameManager;
@@ -23,11 +23,33 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         gameManagerObject = GameObject.Find("GameManager");
-        gameManager = gameManagerObject.GetComponent<GameManager>();
+        try
+        {
+            gameManager = gameManagerObject.GetComponent<GameManager>();
+        }
+        // Literally for the purposes of debugging, this exception is only thrown when loading a level because gameobject isn't loaded
+        // from the other overworld
+        catch (System.NullReferenceException)
+        {
+            //Create a temp gamemanager for purposes of debugging to keep null exception errors.
+            Debug.Log("Game Manager not functioning in local debug mode, level will not save.");
+            gameManagerObject = new GameObject("TempManager",typeof(GameManager)) ;
+           
+        }
+
 
         // get the level data from the save file( either new one or existing)
-        levelData = gameManager.getLevel(levelName);
-        numberOfQuestions = FindObjectsOfType<QuestionGiver>().Length;
+        try
+        {
+            levelData = gameManager.getLevel(levelName);
+        }
+        catch (System.NullReferenceException)
+        {
+
+            levelData = new Level();
+        }
+   
+      //  numberOfQuestions = FindObjectsOfType<QuestionGiver>().Length;
     }
     void Start()
     {

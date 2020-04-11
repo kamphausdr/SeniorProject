@@ -12,10 +12,8 @@ public class QuestionGiver : MonoBehaviour
 
 
     public QuestionManager questionManager;
-    public HintGiver hintPair;
     private Text textQuestion;
     private Text[] textAnswer;
-    public TextAsset importText;
     public int questionIndex;
     public HintGiver hint;
     PlayerController playerControl;
@@ -36,7 +34,7 @@ public class QuestionGiver : MonoBehaviour
     void parseText(int questionIndex)
     {
         string[] pickQuestion;
-        pickQuestion = importText.text.Split('%');
+        pickQuestion = questionManager.importText.text.Split('%');
 
     
         string[] parseText; 

@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 95cae2fc241892d48abefeea8dbcf5b7
   - enabled: 1
-    path: Assets/Scenes/Kitchen Level.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Overworld.unity
     guid: 8feecf7203f10df43a00387360a79834
   - enabled: 1
-    path: Assets/Scenes/Garden Level.unity
+    path: Assets/Scenes/Levels/Garden Level.unity
+    guid: 5d72346b4bffa9d46a92b765dd2accf0
+  - enabled: 1
+    path: Assets/Scenes/Levels/Kitchen Level.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Levels/Cyber Level.unity
     guid: 9d434340d93117f4ebea39a928a10e6f
   m_configObjects: {}
