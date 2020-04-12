@@ -86,7 +86,7 @@ public class QuestionGiver : MonoBehaviour
 
 
         // questionManager.currentQuestion = question;
-    //    playerControl.StopPlayer();
+        playerControl.StopPlayer();
 
         questionManager.ShowQuestion(question);
     }
@@ -94,6 +94,7 @@ public class QuestionGiver : MonoBehaviour
     public void LeaveQuestion()
     {
         questionManager.HideQestion();
+        playerControl.StartPlayer();
     }
 
     IEnumerator FinishQuestion()

@@ -1232,4 +1232,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Levels/Garden Level.unity
   - Assets/Scenes/Levels/Kitchen Level.unity
   - Assets/Scenes/Levels/Cyber Level.unity
-  playerPath: D:/data/Desktop/Web Browser2/Web Browser.exe
+  playerPath: D:/data/Desktop/Web Browser/Web Browser.exe

@@ -22,9 +22,12 @@ public class LevelItem : MonoBehaviour
         level = gameManager.getLevel(levelName);
         button = GetComponent<Button>();
         available = level.unlocked;
+        GameObject uiGroup = GameObject.Find(levelName + " Group");
         if(available)
         {
             starGroup.show();
+            uiGroup.active = true;
+
             button.enabled = true;
             starGroup.setStars(level.starsEarned);
             Collectable.GetComponent<Animator>().SetBool("Unlocked", level.levelCompleted);
@@ -32,6 +35,7 @@ public class LevelItem : MonoBehaviour
         }
         else
         {
+            uiGroup.active = false;
             button.enabled = false;
             starGroup.hide();
         }

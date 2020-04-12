@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
    
     // Defines how fast the player moves, can be adjusted in editor
     [SerializeField] // allows field to be adjusted in unity editor
-    private float MovementFactor = 0.1f;
+    private float MovementFactor = 8f;
     [SerializeField]
     // Defines Player Jump Height ratio based off the jump height.
-    private float JumpFactor = 1f;
+    private float JumpFactor = 2f;
+    private int numberJumps = 0;
 
     private const float jumpHeight = 10f; // Gives a nonchangable jump height.
     // allow access to gaming components
@@ -23,8 +24,9 @@ public class PlayerController : MonoBehaviour
 
     // keeps track of direction player is facing, to allow flipping of sprite as needed
     private bool facingRight;
-    private bool inColision = false;
-    private bool canmove = true;
+    private bool grounded = true;
+    private bool topTouch = false;
+    private bool canJump = true;
 
     // Start is called before the first frame update. Here we perform initialization
     void Start()
@@ -41,43 +43,54 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (canmove)
-        {
+      
             float horizontal = Input.GetAxis("Horizontal"); // Provides the input for the player, designed to work with any device
             if (Jumping) // check to see if player is jumping
             {
-                if (myRigidbody.velocity.y == 0)
+                if (grounded) //myRigidbody.velocity.y == 0)
                 {
-                    Jumping = false;
+                       Jumping = false;
+                    numberJumps = 0;
                     myAnimator.SetBool("Jumping", false);
                     // myCollider.sharedMaterial.friction = 0.4f;
                 }
             }
-
+            if(!Jumping)
             {
-                MovePlayer(horizontal); // Move the player with our function, at the players input velocity.
-                if (Input.GetKeyUp(KeyCode.Space) && !Jumping)
+                if (grounded == false)
                 {
-                    Jump(JumpFactor * jumpHeight); // causes the player to jump at his set jump factor times the jump ratio set by the editor
+                       myAnimator.SetBool("Jumping", true);
+                    // myCollider.sharedMaterial.friction = 0.4f;
                 }
-
-                // Handle flipping ( if it is necessary it will occur)
-                FlipPlayer(horizontal);
+            }
+            
+                MovePlayer(horizontal); // Move the player with our function, at the players input velocity.
+        if (canJump)
+        {
+            if (Input.GetKeyUp(KeyCode.Space) && numberJumps < 2)
+            {
+                Jump(JumpFactor * jumpHeight); // causes the player to jump at his set jump factor times the jump ratio set by the editor
             }
         }
+                // Handle flipping ( if it is necessary it will occur)
+                FlipPlayer(horizontal);
+            
+        
     }
     private void MovePlayer(float horizontal)
     {
         // move the player in the direction by the input at the speed of the player also maintaining his current vertical velocity.
-    
-            if (!(inColision && Jumping))
-            {
 
+        //  if (!(inColision && Jumping))
+        //  {
 
-                // myCollider.sharedMaterial.friction = 0;
-                myRigidbody.velocity = new Vector2(horizontal * MovementFactor, myRigidbody.velocity.y);
-                myAnimator.SetFloat("Speed", Mathf.Abs(horizontal));
-            }
+        // myCollider.sharedMaterial.friction = 0;
+        if (!topTouch | grounded)
+        {
+            myRigidbody.velocity = new Vector2(horizontal * MovementFactor, myRigidbody.velocity.y);
+            myAnimator.SetFloat("Speed", Mathf.Abs(horizontal));
+        }
+         //   }
        
       
         // Set the animators Speed parameter we set to check wether or not the player is moving fast enough to change animation states. We want magnitude not direction, thus Abs.
@@ -99,35 +112,55 @@ public class PlayerController : MonoBehaviour
     }
     // Handles the player jumping, specifies the height so that outside mechanism can potentially jump at other heights
     private void Jump(float height)
-    {
+     {
         // Set a flag to indicate player is jumping, so that he cannot jump an infinite amount of times
         Jumping = true;
+        numberJumps += 1;
         float vertVel = myRigidbody.velocity.x;
         // Set a flag for the animator used to transition the animation to jumping
         myAnimator.SetBool("Jumping", true);
-        // applies the vertical velocity in order to make the player jump. Maintains his current horizontal velocity
-        if (inColision)
-            vertVel = 0;
+        // applies the vertical velocity in order to make the player jump. Maintains his current horizontal velocity 
         myRigidbody.velocity = new Vector2(vertVel, height);
-        
+        grounded = false;
     }
 
     public void StopPlayer()
     {
-        canmove = false;
-        myAnimator.SetFloat("Speed", 0);
+        canJump = false;
+       // myAnimator.SetFloat("Speed", 0);
     }
     public void StartPlayer()
     {
-        canmove = true;
+        canJump = true;
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        inColision = true;
-   
+        if (collision.otherCollider.GetType() == typeof(BoxCollider2D))
+        {
+            topTouch = true;
+        //    Debug.Log("top touch");
+            //   Jumping = false;
+        }
+        else
+        { 
+            grounded = true;
+          //   Debug.Log("on ground");
+            myAnimator.SetBool("Jumping", false);
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        inColision = false;
+        if (collision.otherCollider.GetType() == typeof(BoxCollider2D))
+        {
+            topTouch = false;
+          //  Debug.Log("topOff");
+        }
+        else
+        {
+            grounded = false;
+          //  Debug.Log("left ground");
+        }
     }
+
 }
