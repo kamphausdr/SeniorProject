@@ -5,15 +5,17 @@ using UnityEngine.UI;
 public class QuestionGiver : MonoBehaviour
 {
     [SerializeField]
-    private float AssertionRange = 10; // how far the player must be to trigger the question
+    private float AssertionRange = 30; // how far the player must be to trigger the question
     public Question question;
-    private bool Active = true;
+   // private bool Active = true;
     private Animator myAnimator;
 
 
     public QuestionManager questionManager;
     private Text textQuestion;
     private Text[] textAnswer;
+    private CircleCollider2D questionRange;
+
     public int questionIndex;
     public HintGiver hint;
     PlayerController playerControl;
@@ -26,8 +28,12 @@ public class QuestionGiver : MonoBehaviour
         playerControl = GameObject.Find("Player").GetComponent<PlayerController>();
         questionManager = GameObject.Find("QuestionManager").GetComponent<QuestionManager>();
 
-        myAnimator =  GetComponentInChildren<Animator>();
-        GetComponentInChildren<CircleCollider2D>().radius = AssertionRange;
+        myAnimator = GetComponentInChildren<Animator>();
+        //GetComponentInChildren<CircleCollider2D>().radius = AssertionRange;
+        questionRange = gameObject.AddComponent(typeof(CircleCollider2D)) as CircleCollider2D;
+        questionRange.radius = AssertionRange;
+        questionRange.isTrigger = true;
+        
         textQuestion = questionManager.dialogQuestion; //(Text)GameObject.Find("Question");
         textAnswer = questionManager.dialogAnswers;
     }
@@ -36,17 +42,17 @@ public class QuestionGiver : MonoBehaviour
         string[] pickQuestion;
         pickQuestion = questionManager.importText.text.Split('%');
 
-    
-        string[] parseText; 
+
+        string[] parseText;
         parseText = pickQuestion[questionIndex].Split('`');
 
         int answerIndex = 0;
-        for (int i = 0; i <parseText.Length; i++)
+        for (int i = 0; i < parseText.Length; i++)
         {
             if (parseText[i] == "Q")
             {
                 i++;
-              //  Debug.Log(parseText[i]);
+                //  Debug.Log(parseText[i]);
                 question.question = parseText[i];
             }
             if (parseText[i] == "*A")
@@ -66,23 +72,22 @@ public class QuestionGiver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Active)
-            enabled = false;
-        if(question.questionAnswered)
+       
+        if (question.questionAnswered)
         {
             StartCoroutine(FinishQuestion());
-            Active = false;
+        
             this.enabled = false;
         }
-      
+
     }
     void AskQuestion()
     {
-        
-        
-       // questionManager.currentQuestion = question;
-        playerControl.StopPlayer();
-    
+
+
+        // questionManager.currentQuestion = question;
+    //    playerControl.StopPlayer();
+
         questionManager.ShowQuestion(question);
     }
     [SerializeField]
@@ -95,30 +100,35 @@ public class QuestionGiver : MonoBehaviour
     {
         yield return new WaitForSeconds(3); // waits 4 seconds then hides quesiton
         myAnimator.SetTrigger("Quit");
-       playerControl.StartPlayer();
-   GetComponent<CircleCollider2D>().enabled = false;
-       // hint.enabled = false;
+        playerControl.StartPlayer();
+        GetComponent<CircleCollider2D>().enabled = false;
+        questionRange.enabled = false;
+        
+        // hint.enabled = false;
 
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+
+        if (collision.gameObject.tag == "Player" == questionRange)
         {
-          //  Animator temp = GetComponent<Animator>();
-        //    temp.SetTrigger("Turn");
+            //  Animator temp = GetComponent<Animator>();
+            //    temp.SetTrigger("Turn");
+            questionRange.radius = AssertionRange + 5;
             AskQuestion();
+
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-         //   Animator temp = GetComponent<Animator>();
-         //   temp.SetTrigger("Forward");
+            //   Animator temp = GetComponent<Animator>();
+            //   temp.SetTrigger("Forward");
+            questionRange.radius = AssertionRange - 5;
             LeaveQuestion();
         }
+
     }
 }
-
-

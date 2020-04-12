@@ -7,7 +7,7 @@ Q` What is a byte?
 `A` Magic force
 `A` It makes kites fly in a storm
 `A` Movement of water in a pipe.
-`*A` The movement of electrons between molecules that generate energy in the process.
+`*A` Energy from charged electrons moving.
 %Q` What is a CPU in a computer?
 `A` Cool Party Uniform
 `*A`Central Processing Unit

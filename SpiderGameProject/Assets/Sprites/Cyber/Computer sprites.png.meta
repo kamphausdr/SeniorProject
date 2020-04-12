@@ -10,13 +10,28 @@ TextureImporter:
     second: Screen
   - first:
       213: 1036142729392892304
-    second: Computer sprites_2
+    second: platform
   - first:
       213: 7004899958818268828
-    second: Computer sprites_3
+    second: lightning
   - first:
       213: 4997071458439281906
     second: Lightning
+  - first:
+      213: -7104755873857735642
+    second: floppy
+  - first:
+      213: 4087187746880622016
+    second: screen
+  - first:
+      213: -7876965237060048989
+    second: bolt
+  - first:
+      213: 6755188121766168093
+    second: lightbulb
+  - first:
+      213: 3156570351200638352
+    second: Computer sprites_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -149,12 +164,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Floppy
+      name: floppy
       rect:
         serializedVersion: 2
-        x: 23
-        y: 509
-        width: 336
+        x: 17
+        y: 510
+        width: 350
         height: 316
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -163,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d72e4d62bbd142b0800000000000000
-      internalID: -5601954902087686192
+      spriteID: 624f6d2ec26d66d90800000000000000
+      internalID: -7104755873857735642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Screen
+      name: screen
       rect:
         serializedVersion: 2
-        x: 478
-        y: 460
-        width: 294
-        height: 356
+        x: 451
+        y: 465
+        width: 358
+        height: 399
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,50 +199,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c3c85a2d6edd84b0800000000000000
-      internalID: -5436444614723058752
+      spriteID: 0cd0627d99b98b830800000000000000
+      internalID: 4087187746880622016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Computer sprites_2
+      name: lightning
       rect:
         serializedVersion: 2
-        x: 778
-        y: 723
-        width: 7
-        height: 16
+        x: 66
+        y: 31
+        width: 240
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 25}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 099211a925e116e00800000000000000
-      internalID: 1036142729392892304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lightning
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 27
-        width: 230
-        height: 373
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2fc348d040a295540800000000000000
-      internalID: 4997071458439281906
+      spriteID: c96e2842667663160800000000000000
+      internalID: 7004899958818268828
       vertices: []
       indices: 
       edges: []

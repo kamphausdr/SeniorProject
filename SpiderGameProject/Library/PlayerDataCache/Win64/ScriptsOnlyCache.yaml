@@ -64,6 +64,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
     - Class: 48
@@ -86,6 +88,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
+    - Class: 102
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -100,6 +104,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11740}
     - Class: 114
       Script: {instanceID: 11880}
+    - Class: 114
+      Script: {instanceID: 11882}
     - Class: 114
       Script: {instanceID: 12260}
     - Class: 114
@@ -283,6 +289,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11740}
     - Class: 114
+      Script: {instanceID: 11880}
+    - Class: 114
       Script: {instanceID: 11882}
     - Class: 114
       Script: {instanceID: 12260}
@@ -305,6 +313,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13296}
     - Class: 114
+      Script: {instanceID: 13332}
+    - Class: 114
       Script: {instanceID: 13378}
     - Class: 114
       Script: {instanceID: 13390}
@@ -325,6 +335,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 156049354
       Script: {instanceID: 0}
     Assets/Scenes/MainMenu.unity:
     - Class: 1
@@ -645,7 +657,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: ea1a36690f19bcd47a96bcc87aa60cf5
+      Hash: da7e15ecdab931e080894208158ef26c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LevelManager
@@ -933,7 +945,7 @@ ScriptsOnlyBuild:
     className: SimpleScript
   - hash:
       serializedVersion: 2
-      Hash: 95a95f9c5a9df7c2fb83c8206e39df58
+      Hash: 903235467748278394db862a06cb0d59
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: QuestionGiver
@@ -1119,7 +1131,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: db4808742442e8237044fe1ae44348ee
+      Hash: 740552ee1ace74f22a8e414e324d2a25
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: QuestionManager
@@ -1220,4 +1232,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Levels/Garden Level.unity
   - Assets/Scenes/Levels/Kitchen Level.unity
   - Assets/Scenes/Levels/Cyber Level.unity
-  playerPath: D:/data/Game Design/School/SeniorProject/SpiderGameProject/Web Browser.exe
+  playerPath: D:/data/Desktop/Web Browser2/Web Browser.exe
