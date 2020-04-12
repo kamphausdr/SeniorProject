@@ -9,7 +9,7 @@ public class QuestionGiver : MonoBehaviour
     public Question question;
    // private bool Active = true;
     private Animator myAnimator;
-
+    private const int rangeAdd = 10;
 
     public QuestionManager questionManager;
     private Text textQuestion;
@@ -116,7 +116,7 @@ public class QuestionGiver : MonoBehaviour
         {
             //  Animator temp = GetComponent<Animator>();
             //    temp.SetTrigger("Turn");
-            questionRange.radius = AssertionRange + 5;
+            questionRange.radius = AssertionRange + rangeAdd;
             AskQuestion();
 
         }
@@ -127,7 +127,7 @@ public class QuestionGiver : MonoBehaviour
         {
             //   Animator temp = GetComponent<Animator>();
             //   temp.SetTrigger("Forward");
-            questionRange.radius = AssertionRange - 5;
+            questionRange.radius = AssertionRange - rangeAdd;
             LeaveQuestion();
         }
 
