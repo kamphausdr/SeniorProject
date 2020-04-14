@@ -156,7 +156,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.32, y: 15.96}
+    oldSize: {x: 11.8, y: 14.6}
     newSize: {x: 14.32, y: 15.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1129,7 +1129,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Hint
       value: 'Computers use binary to perform instructions. All programs are converted
-        to machine language after they are made so that computers can understand.  '
+        to machine code after they are made so that computers can understand.  '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8505028fc0c6224d9995a1b87c53595, type: 3}
@@ -1203,7 +1203,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ea13e4abc1968454db4606d7e48d6080, type: 3}
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
     m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
@@ -2614,7 +2614,7 @@ PrefabInstance:
     - target: {fileID: 6745625963054515875, guid: e8505028fc0c6224d9995a1b87c53595,
         type: 3}
       propertyPath: Hint
-      value: Nokoli Tesala was a brilliant eventer in the late 1800s. He created
+      value: Nokoli Tesala was a brilliant inventor in the late 1800s. He created
         many electrical inventions. He most known for his Tesala Coil. A very high
         energy transformer.
       objectReference: {fileID: 0}
@@ -2685,7 +2685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2835,7 +2835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3408,7 +3408,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ea13e4abc1968454db4606d7e48d6080, type: 3}
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
     m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
@@ -3713,7 +3713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -4980,7 +4980,7 @@ PrefabInstance:
     - target: {fileID: 6745625963054515875, guid: e8505028fc0c6224d9995a1b87c53595,
         type: 3}
       propertyPath: Hint
-      value: There are many types of data storage. This is a floppy an old type of
+      value: There are many types of data storage. I am a floppy, an old type of
         removable storage. When a computer needs to store data for a long time, it
         goes on the hard drive.
       objectReference: {fileID: 0}
@@ -5112,7 +5112,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ea13e4abc1968454db4606d7e48d6080, type: 3}
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
     m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
@@ -6208,7 +6208,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ea13e4abc1968454db4606d7e48d6080, type: 3}
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
     m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
@@ -6714,7 +6714,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ea13e4abc1968454db4606d7e48d6080, type: 3}
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
     m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
@@ -7047,7 +7047,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ea13e4abc1968454db4606d7e48d6080, type: 3}
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
     m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
@@ -7168,7 +7168,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ea13e4abc1968454db4606d7e48d6080, type: 3}
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
     m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
@@ -7485,7 +7485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -8232,12 +8232,12 @@ PrefabInstance:
     - target: {fileID: 2178173452001161492, guid: e8505028fc0c6224d9995a1b87c53595,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -75.8
+      value: -76.159
       objectReference: {fileID: 0}
     - target: {fileID: 2178173452001161492, guid: e8505028fc0c6224d9995a1b87c53595,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.1
+      value: 6.58
       objectReference: {fileID: 0}
     - target: {fileID: 2178173452001161492, guid: e8505028fc0c6224d9995a1b87c53595,
         type: 3}
@@ -8284,6 +8284,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2178173452001161492, guid: e8505028fc0c6224d9995a1b87c53595,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.90294
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178173452001161492, guid: e8505028fc0c6224d9995a1b87c53595,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.892
+      objectReference: {fileID: 0}
     - target: {fileID: 2178173452001161493, guid: e8505028fc0c6224d9995a1b87c53595,
         type: 3}
       propertyPath: m_Sprite
@@ -8305,10 +8315,20 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2178173452001161493, guid: e8505028fc0c6224d9995a1b87c53595,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2178173452001161498, guid: e8505028fc0c6224d9995a1b87c53595,
         type: 3}
       propertyPath: m_Name
       value: HintMonitor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799904035670536367, guid: e8505028fc0c6224d9995a1b87c53595,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6745625963054515875, guid: e8505028fc0c6224d9995a1b87c53595,
         type: 3}
@@ -8323,8 +8343,8 @@ PrefabInstance:
     - target: {fileID: 6745625963054515875, guid: e8505028fc0c6224d9995a1b87c53595,
         type: 3}
       propertyPath: Hint
-      value: 'A represents a number in binary, it is either 1 or 0. 8 Bits represents
-        a byte. Bytes is a way to messure how big data is, it is how many 1s and
+      value: 'A Bit represents a number in binary, it is either 1 or 0. 8 Bits represents
+        a Byte. Bytes is a way to messure how big data is, it is how many 1s and
         0s the computer is using to represent it. '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8344,12 +8364,12 @@ PrefabInstance:
     - target: {fileID: 4981826412788532600, guid: ad1878d6d21f55c4b9b352ea71db77da,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 383.52063
+      value: 383.2
       objectReference: {fileID: 0}
     - target: {fileID: 4981826412788532600, guid: ad1878d6d21f55c4b9b352ea71db77da,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 50.000004
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4981826412788532600, guid: ad1878d6d21f55c4b9b352ea71db77da,
         type: 3}
@@ -8386,6 +8406,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981826412788532602, guid: ad1878d6d21f55c4b9b352ea71db77da,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 50.23
       objectReference: {fileID: 0}
     - target: {fileID: 4981826412788532603, guid: ad1878d6d21f55c4b9b352ea71db77da,
         type: 3}

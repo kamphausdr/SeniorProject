@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         save.Levels.Add(gardenLevel);
         save.Levels.Add(cyberLevel);
         save.CurrentLevelOn = gardenLevel.levelName;
-        // make list of all the levels ( hard coded for now :((( )
+        // make list of all the levels 
 
         return save;
     }

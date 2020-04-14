@@ -2251,6 +2251,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6093768793133151597, guid: a641a934a65d892488e95840ebc3232f,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1416857069
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093768793133151597, guid: a641a934a65d892488e95840ebc3232f,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093768793133151597, guid: a641a934a65d892488e95840ebc3232f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9084041711873684694, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2473,22 +2488,27 @@ PrefabInstance:
     - target: {fileID: 6093768793133151594, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 6093768793133151594, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.11
+      value: 0.299497
       objectReference: {fileID: 0}
     - target: {fileID: 6093768793133151594, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.11
+      value: 0.29953
       objectReference: {fileID: 0}
     - target: {fileID: 6093768793133151594, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.11
+      value: 0.2994926
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093768793133151594, guid: a641a934a65d892488e95840ebc3232f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.094
       objectReference: {fileID: 0}
     - target: {fileID: 9084041711873684694, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
@@ -2894,7 +2914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889390455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 831.4, y: 28.8, z: 0}
+  m_LocalPosition: {x: 831.55, y: 28.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6829,15 +6849,20 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.11
       objectReference: {fileID: 0}
+    - target: {fileID: 6093768793133151594, guid: a641a934a65d892488e95840ebc3232f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9084041711873684694, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 718.94135
+      value: 715.73
       objectReference: {fileID: 0}
     - target: {fileID: 9084041711873684694, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.710804
+      value: 41.91
       objectReference: {fileID: 0}
     - target: {fileID: 9084041711873684694, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
@@ -6887,12 +6912,12 @@ PrefabInstance:
     - target: {fileID: 9084041711873684694, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.007
       objectReference: {fileID: 0}
     - target: {fileID: 9084041711873684694, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.948
       objectReference: {fileID: 0}
     - target: {fileID: 9084041711873684694, guid: a641a934a65d892488e95840ebc3232f,
         type: 3}
@@ -6947,8 +6972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssertionRange: 1.5
   animatiorCanvas: {fileID: 1632345754}
-  Hint: Water goes through a 3 step process called the water cycle. It consists of
-    Evaperation, condensation, and persipitation.
+  Hint: Water goes through a 4 step process called the water cycle. It consists of
+    Evaperation, condensation,  persipitation, and collection.
   hintText: {fileID: 1966128049}
 --- !u!58 &2105551888
 CircleCollider2D:
@@ -7843,7 +7868,7 @@ PrefabInstance:
     - target: {fileID: 3821135330854083505, guid: 5d72ec6a65dbbee4e8a48c3dbd65dae4,
         type: 3}
       propertyPath: AssertionRange
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3821135330854083506, guid: 5d72ec6a65dbbee4e8a48c3dbd65dae4,
         type: 3}
@@ -7903,7 +7928,7 @@ PrefabInstance:
     - target: {fileID: 3821135330854083508, guid: 5d72ec6a65dbbee4e8a48c3dbd65dae4,
         type: 3}
       propertyPath: m_Radius
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3821135330854083509, guid: 5d72ec6a65dbbee4e8a48c3dbd65dae4,
         type: 3}
@@ -8152,6 +8177,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1595059742}
+    - target: {fileID: 6948566716414431589, guid: 8051331ed0c5c534fb4147cc37bde7aa,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6948566716513070342, guid: 8051331ed0c5c534fb4147cc37bde7aa,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8342,6 +8372,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1595059742}
+    - target: {fileID: 6948566717500826505, guid: 8051331ed0c5c534fb4147cc37bde7aa,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6948566717522739052, guid: 8051331ed0c5c534fb4147cc37bde7aa,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8362,6 +8397,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1595059742}
+    - target: {fileID: 6948566717522739053, guid: 8051331ed0c5c534fb4147cc37bde7aa,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6948566717771313606, guid: 8051331ed0c5c534fb4147cc37bde7aa,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8382,6 +8422,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1595059742}
+    - target: {fileID: 6948566717771313607, guid: 8051331ed0c5c534fb4147cc37bde7aa,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6948566717796211344, guid: 8051331ed0c5c534fb4147cc37bde7aa,
         type: 3}
       propertyPath: m_AnchorMin.y

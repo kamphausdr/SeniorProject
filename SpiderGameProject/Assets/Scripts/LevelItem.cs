@@ -26,7 +26,7 @@ public class LevelItem : MonoBehaviour
         if(available)
         {
             starGroup.show();
-            uiGroup.active = true;
+            uiGroup.SetActive(true);
 
             button.enabled = true;
             starGroup.setStars(level.starsEarned);
@@ -35,7 +35,7 @@ public class LevelItem : MonoBehaviour
         }
         else
         {
-            uiGroup.active = false;
+            uiGroup.SetActive(false);
             button.enabled = false;
             starGroup.hide();
         }

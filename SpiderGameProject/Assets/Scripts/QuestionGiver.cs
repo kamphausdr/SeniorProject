@@ -104,9 +104,6 @@ public class QuestionGiver : MonoBehaviour
         playerControl.StartPlayer();
         GetComponent<CircleCollider2D>().enabled = false;
         questionRange.enabled = false;
-        
-        // hint.enabled = false;
-
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -114,9 +111,7 @@ public class QuestionGiver : MonoBehaviour
 
         if (collision.gameObject.tag == "Player" == questionRange)
         {
-            //  Animator temp = GetComponent<Animator>();
-            //    temp.SetTrigger("Turn");
-            questionRange.radius = AssertionRange + rangeAdd;
+            questionRange.radius= AssertionRange  + rangeAdd;
             AskQuestion();
 
         }
@@ -125,9 +120,7 @@ public class QuestionGiver : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            //   Animator temp = GetComponent<Animator>();
-            //   temp.SetTrigger("Forward");
-            questionRange.radius = AssertionRange - rangeAdd;
+            questionRange.radius = AssertionRange;
             LeaveQuestion();
         }
 

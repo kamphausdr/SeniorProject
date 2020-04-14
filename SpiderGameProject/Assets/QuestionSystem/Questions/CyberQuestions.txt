@@ -1,7 +1,7 @@
 Q` What is a byte?
 `A` Mouth full of food
 `A` 6 Bots
-`*A` Set of 8 1s and 0s
+`*A` 8 Bits 
 `A` 3 Bits
 %Q` What is electricity?
 `A` Magic force
@@ -15,7 +15,7 @@ Q` What is a byte?
 `A` Calculate Percentage Utility
 %Q` What 'language' do computers use to interpret instructions.  
 `A` Robot
-`*A` Machine Language
+`*A` Machine Code
 `A` English
 `A` C++
 %Q` Who invented the Tesla Coil?
