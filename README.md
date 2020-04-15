@@ -1,5 +1,6 @@
 # SeniorProject
 Senior Project for CSU CSCI Bachleors - Educational Spider Game
+Created by Derrick Kamphaus
 ## Accompanying links:
 [Presenation Video](https://youtu.be/RTh8H4tLyJY)
 ## Explanation of contents:
