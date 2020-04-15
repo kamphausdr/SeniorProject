@@ -1,16 +1,11 @@
 # SeniorProject
 Senior Project for CSU CSCI Bachleors - Educational Spider Game
 
-Changelog:
-
-8/28/19 Initial Upload game project, requirements document, Design Document
-  Requirements: Setup basic requirements for game project.
-  Design: List of basic design features for game and mechanics.
-  
-8/31/19
-  Unity: Uploaded Basic Assets of Spider and possible first level.
-    Experimenting with 2d Physics and player control. Spider moves left and right but no animation.
-9/17/19:
-	Basics Physics have been implemented, currnetly a testing level has been created.
-	User can jump and move left and right.
-	A question system is currently being implemented. At the moment player gets close to a termite with a question above his head, then he cant move. He will get asked a question and have to answer to move on. Working on question UI.
+# Explanation of contents:
+Repository is broken into 3 main portions:
+## [Docs](/docs/)
+Contains all documentation generated for the project. [Binder](docs/Binder/) is the refined document containing all the documents together.
+## [Build](/Spider%20Build/)
+Contains the latest project build of the game. Zip file contains the build in a single downloadable file. Folder Output/ contains an installer of the latest build.
+## [SpiderGameProject](/SpiderGameProject/)
+Contains the entire project file used by unity. Herein [Assets/Scripts/](/SpiderGameProject/Assets/Scripts/) is the location of the majority of the C# code. More code working with the game's core system is located in [Assets/System/](/SpiderGameProject/Assets/System/) 
