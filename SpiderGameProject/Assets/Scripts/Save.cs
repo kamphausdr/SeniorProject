@@ -7,13 +7,12 @@ public class Save
     public string CurrentLevelOn;
     public List<Level> Levels;
     public int Score = 0;
-    //public List<bool> levelsUnlocked;
+
     public Save(string currentLevelOn, List<Level> levels, int score)
     {
         CurrentLevelOn = currentLevelOn;
         Levels = levels;
         Score = score;
-     //   this.levelsUnlocked = levelsUnlocked;
     }
 
     public Save()
@@ -21,7 +20,6 @@ public class Save
         CurrentLevelOn = null;
         Levels = new List<Level>();
         Score = 0;
-     //   levelsUnlocked = new List<bool>();
 
     }
     
@@ -45,7 +43,6 @@ public class Save
         {
             if (levelI.Equals(level))
                 return level;
-     
         }
         return null;
     }
@@ -68,8 +65,6 @@ public class Save
                     return levelI;
                 }
             }
-          
-           
         }
               return null;
     }
@@ -122,9 +117,6 @@ public class Save
     {
         this.levelName = levelName ?? throw new ArgumentNullException(nameof(levelName));
     }
-
-   
-
     public Level(string levelName, bool unlocked, int score, int starsEarned, bool levelCompleted)
     {
         this.levelName = levelName ?? throw new ArgumentNullException(nameof(levelName));

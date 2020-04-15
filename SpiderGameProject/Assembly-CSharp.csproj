@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{DC33DFC9-E31B-3DEE-1C3F-58FB59E5F8BA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -75,7 +76,6 @@
     <Compile Include="Assets\Scripts\QuestionManager.cs" />
     <Compile Include="Assets\Scripts\Save.cs" />
     <Compile Include="Assets\Scripts\StarRate.cs" />
-    <Compile Include="Assets\Scripts\TextChange.cs" />
     <Compile Include="Assets\Scripts\collectable.cs" />
     <Compile Include="Assets\System\GameManager.cs" />
     <Compile Include="Assets\System\LevelManager.cs" />

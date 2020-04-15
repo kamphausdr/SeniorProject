@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine;
 using System;
-
+/// <summary>
+/// Gamemanger handles all the game data for the game. It travels between levels and acts as the glue that holds the game together.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     private Save currentData;
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
 
         return save;
     }
+    //Write the game data to the disk for any given data
     public void save(Save dataFile)
     {
         Debug.Log("Attempting to save");
@@ -90,10 +93,12 @@ public class GameManager : MonoBehaviour
     {
         return this.name;
     }
+    // simple save that uses the data already in the object
     public void save()
     {
         save(currentData);   
     }
+    // Loads the game data from the disk
     public void load()
     {
         Save saveData;

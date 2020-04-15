@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+/// <summary>
+/// This object represents a level within the overworld. This supplies some information about the level that it obtains from the game manager
+/// </summary>
 public class LevelItem : MonoBehaviour
 {
     private Level level;
@@ -14,11 +17,11 @@ public class LevelItem : MonoBehaviour
     public Text scoreLabel;
     public StarRate starGroup;
     const string SCORELABEL = "Score: ";
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-       // gameManager.load();
         level = gameManager.getLevel(levelName);
         button = GetComponent<Button>();
         available = level.unlocked;
@@ -39,11 +42,5 @@ public class LevelItem : MonoBehaviour
             button.enabled = false;
             starGroup.hide();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

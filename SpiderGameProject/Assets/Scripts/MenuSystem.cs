@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+/// <summary>
+/// This handles the Main Menu. It allows the player to navigate through the game.
+/// </summary>
 public class MenuSystem : MonoBehaviour
 {
     public GameObject MainMenuUI;
@@ -105,14 +108,14 @@ public class MenuSystem : MonoBehaviour
     {
         StartCoroutine(LoadLevelAsync(level));
     }
- public  IEnumerator LoadLevelAsync(string level)
+    public  IEnumerator LoadLevelAsync(string level)
     {
        // string levelPath = levelDir + level;
         Scene newScene; 
         Scene thisScene = SceneManager.GetActiveScene();
-        //  transferLevel(level);
+   
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
-       // SceneManager.LoadScene(level);
+    
         newScene = SceneManager.GetSceneByName(level);
         while (!asyncLoad.isDone)
         {
@@ -120,12 +123,6 @@ public class MenuSystem : MonoBehaviour
         }
         SceneManager.MoveGameObjectToScene(gameManager, newScene);
         SceneManager.UnloadSceneAsync(thisScene);
-    }
-    private void transferLevel(string levelName)
-    {
-     //   Scene sceneToLoad;
-       // sceneToLoad = SceneManager.GetSceneByName(levelName);
-       // SceneManager.MoveGameObjectToScene(this.GetComponentInParent<GameObject>(), sceneToLoad);
     }
     public void Back()
     {

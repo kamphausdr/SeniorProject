@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// This handles showing the pause menu when the player hits escape.
+/// </summary>
 public class GamePause : MonoBehaviour
 {
     public static bool gamePaused = false;
     public GameObject pauseMenuUI;
-    private Animator myAnimatior;
 
     private void Start()
     {

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This class designates an object as an entity that provides hints. This interacts with the Hint Dialogbox
+/// </summary>
 public class HintGiver : MonoBehaviour
 {
     [SerializeField]
@@ -25,7 +28,6 @@ public class HintGiver : MonoBehaviour
     {   
         playerControl = GameObject.Find("Player").GetComponent<PlayerController>();
 
-        // questionMark = GetComponentInChildren<Animatator> //("QuestionMark");
         myAnimator = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         GetComponentInChildren<CircleCollider2D>().radius = AssertionRange;
@@ -36,10 +38,6 @@ public class HintGiver : MonoBehaviour
     {
         if (!Active)
             enabled = false;
-    }
-    public void shutDown()
-    {
-        
     }
     public void showHintMarker()
     {
@@ -52,16 +50,15 @@ public class HintGiver : MonoBehaviour
     void ShowHint()
     {
         hintText.text = Hint;
-        animatiorCanvas.SetBool("IsOpen", true);
+        animatiorCanvas.SetBool("IsOpen", true); // flag the animator to show the opening animation
     }
     [SerializeField]
     public void HideHint()
     {
-        animatiorCanvas.SetBool("IsOpen", false);     
-        // questionManager.HideQestion();
+        animatiorCanvas.SetBool("IsOpen", false); // flag the animator to show the closing animation
     }
 
-
+    // Detect a collision with the player show the hint
     private void  OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -69,13 +66,12 @@ public class HintGiver : MonoBehaviour
             ShowHint();
         }
     }
+    // Hide the hint when the player leaves.
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-
             HideHint();
-           // Physics2D.IgnoreCollision(collision.collider, collision.otherCollider, false);
         }
 
     }

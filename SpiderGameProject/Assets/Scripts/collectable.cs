@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// A simple class that triggers end of level conditions when player collides with the object
+/// </summary>
 public class collectable : MonoBehaviour
 {
     public LevelManager levelManager;
@@ -20,13 +22,11 @@ public class collectable : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Got the level ending collectable!");
+
             levelManager.endLevel();
 
 
         }
     }
-   
-
-    }
+   }
 

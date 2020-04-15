@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the player. Handles movement and jumping from inpyt by the player.
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     
@@ -41,18 +44,15 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
-      
+    {     
             float horizontal = Input.GetAxis("Horizontal"); // Provides the input for the player, designed to work with any device
             if (Jumping) // check to see if player is jumping
             {
-                if (grounded) //myRigidbody.velocity.y == 0)
+                if (grounded) 
                 {
                        Jumping = false;
                     numberJumps = 0;
                     myAnimator.SetBool("Jumping", false);
-                    // myCollider.sharedMaterial.friction = 0.4f;
                 }
             }
             if(!Jumping)
@@ -60,7 +60,6 @@ public class PlayerController : MonoBehaviour
                 if (grounded == false)
                 {
                        myAnimator.SetBool("Jumping", true);
-                    // myCollider.sharedMaterial.friction = 0.4f;
                 }
             }
             
@@ -74,24 +73,18 @@ public class PlayerController : MonoBehaviour
         }
                 // Handle flipping ( if it is necessary it will occur)
                 FlipPlayer(horizontal);
-            
-        
     }
     private void MovePlayer(float horizontal)
     {
         // move the player in the direction by the input at the speed of the player also maintaining his current vertical velocity.
 
-        //  if (!(inColision && Jumping))
-        //  {
 
-        // myCollider.sharedMaterial.friction = 0;
         if (!topTouch | grounded)
         {
             myRigidbody.velocity = new Vector2(horizontal * MovementFactor, myRigidbody.velocity.y);
             myAnimator.SetFloat("Speed", Mathf.Abs(horizontal));
         }
-         //   }
-       
+          
       
         // Set the animators Speed parameter we set to check wether or not the player is moving fast enough to change animation states. We want magnitude not direction, thus Abs.
    
@@ -127,7 +120,6 @@ public class PlayerController : MonoBehaviour
     public void StopPlayer()
     {
         canJump = false;
-       // myAnimator.SetFloat("Speed", 0);
     }
     public void StartPlayer()
     {
@@ -139,13 +131,10 @@ public class PlayerController : MonoBehaviour
         if (collision.otherCollider.GetType() == typeof(BoxCollider2D))
         {
             topTouch = true;
-        //    Debug.Log("top touch");
-            //   Jumping = false;
         }
         else
         { 
             grounded = true;
-          //   Debug.Log("on ground");
             myAnimator.SetBool("Jumping", false);
         }
     }
@@ -154,12 +143,10 @@ public class PlayerController : MonoBehaviour
         if (collision.otherCollider.GetType() == typeof(BoxCollider2D))
         {
             topTouch = false;
-          //  Debug.Log("topOff");
         }
         else
         {
             grounded = false;
-          //  Debug.Log("left ground");
         }
     }
 

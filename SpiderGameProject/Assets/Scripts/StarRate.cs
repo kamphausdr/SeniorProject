@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Provides a mean to display the number of stars per players stars earned.
+/// </summary>
 public class StarRate : MonoBehaviour
 {
     public GameObject[] star;

@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// Represents an entity that is able to ask questions to the player - works with question manager
+/// </summary>
 public class QuestionGiver : MonoBehaviour
 {
     [SerializeField]
     private float AssertionRange = 30; // how far the player must be to trigger the question
     public Question question;
-   // private bool Active = true;
     private Animator myAnimator;
     private const int rangeAdd = 10;
 
-    public QuestionManager questionManager;
+    public QuestionManager questionManager; // link to questionManager required to function properly
     private Text textQuestion;
     private Text[] textAnswer;
     private CircleCollider2D questionRange;
@@ -29,12 +30,12 @@ public class QuestionGiver : MonoBehaviour
         questionManager = GameObject.Find("QuestionManager").GetComponent<QuestionManager>();
 
         myAnimator = GetComponentInChildren<Animator>();
-        //GetComponentInChildren<CircleCollider2D>().radius = AssertionRange;
+
         questionRange = gameObject.AddComponent(typeof(CircleCollider2D)) as CircleCollider2D;
         questionRange.radius = AssertionRange;
         questionRange.isTrigger = true;
         
-        textQuestion = questionManager.dialogQuestion; //(Text)GameObject.Find("Question");
+        textQuestion = questionManager.dialogQuestion;
         textAnswer = questionManager.dialogAnswers;
     }
     void parseText(int questionIndex)
@@ -52,7 +53,6 @@ public class QuestionGiver : MonoBehaviour
             if (parseText[i] == "Q")
             {
                 i++;
-                //  Debug.Log(parseText[i]);
                 question.question = parseText[i];
             }
             if (parseText[i] == "*A")
@@ -83,11 +83,7 @@ public class QuestionGiver : MonoBehaviour
     }
     void AskQuestion()
     {
-
-
-        // questionManager.currentQuestion = question;
         playerControl.StopPlayer();
-
         questionManager.ShowQuestion(question);
     }
     [SerializeField]
@@ -113,7 +109,6 @@ public class QuestionGiver : MonoBehaviour
         {
             questionRange.radius= AssertionRange  + rangeAdd;
             AskQuestion();
-
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

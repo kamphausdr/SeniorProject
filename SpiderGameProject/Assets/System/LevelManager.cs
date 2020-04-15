@@ -5,6 +5,9 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.SceneManagement;
+/// <summary>
+/// Manages all the data in a given level, the glue that holds the level together and interacts with the game manager
+/// </summary>
 public class LevelManager : MonoBehaviour
 {
     private int playerScore = 0;
@@ -48,15 +51,8 @@ public class LevelManager : MonoBehaviour
 
             levelData = new Level();
         }
-   
-      //  numberOfQuestions = FindObjectsOfType<QuestionGiver>().Length;
     }
-    void Start()
-    {
 
-        // sets the number of questions in the level to how ever many question givers are placed...
-      
-    }
     public int getScore()
     {
         return playerScore;
@@ -77,7 +73,6 @@ public class LevelManager : MonoBehaviour
     }
     public void endLevel()
     {
-
         levelComplete = true;
         Scene thisScene = SceneManager.GetActiveScene();
         float correctRatio = (float) playerScore / (float) (numberOfQuestions * pointsPerQuestion);
@@ -100,10 +95,12 @@ public class LevelManager : MonoBehaviour
         gameManager.unlockLevelDependents(levelData);
         gameManager.saveLevel(levelData);
 
+        // Special unity procedure for loading the menu asynchronusly - allows multithreading
         StartCoroutine(LoadMenu());
        
 
     }
+    //Loads the menu, IEnumerator is required for the aysnchronus loading with unity
     public IEnumerator LoadMenu()
     {
         string overworld =("Overworld");
@@ -113,6 +110,7 @@ public class LevelManager : MonoBehaviour
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(overworld, LoadSceneMode.Additive);             
         // SceneManager.LoadScene(level);
         newScene = SceneManager.GetSceneByName(overworld);
+        // Required code for the async loading
         while (!asyncLoad.isDone)
         {
             yield return null;
@@ -125,7 +123,4 @@ public class LevelManager : MonoBehaviour
         Level thisLevel = new Level(levelName,true, playerScore, numberofStars, true);
         return thisLevel;
     }
-
-   
-
 }

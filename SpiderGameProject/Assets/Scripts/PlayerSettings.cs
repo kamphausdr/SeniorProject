@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Handles the settings for the player. Saves their settings
+/// </summary>
 public class PlayerSettings : MonoBehaviour
 {
     [SerializeField]
